@@ -6,13 +6,16 @@ from typing import Any
 import io
 import json
 
+
+
+
 from matplotlib.pyplot import figure
 import streamlit as st
 from geopandas import GeoDataFrame
 from shapely.geometry import Polygon
 
 from prettymapp.plotting import Plot
-from prettymapp.osm import get_osm_geometries
+from prettymapp.osm import get_osm_geometries   
 from prettymapp.settings import STYLES
 
 
@@ -47,6 +50,7 @@ def get_colors_from_style(style: str) -> dict:
     return lc_class_colors
 
 
+
 def plt_to_svg(fig: figure) -> str:
     imgdata = StringIO()
     fig.savefig(
@@ -55,6 +59,7 @@ def plt_to_svg(fig: figure) -> str:
     imgdata.seek(0)
     svg_string = imgdata.getvalue()
     return svg_string
+
 
 
 def svg_to_html(svg_string: str) -> str:

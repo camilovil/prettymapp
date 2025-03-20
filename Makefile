@@ -8,15 +8,18 @@ test[live]:
 	black .
 	python -m pytest --pylint --pylint-rcfile=../../pylintrc --mypy --mypy-ignore-missing-imports --runlive --durations=5
 
+
 setup:
 	pip install -r requirements.txt
 	pip install -r streamlit-prettymapp/requirements.txt
+
 
 setup-dev:
 	pip install -r requirements.txt
 	pip install -r requirements-dev.txt
 	pip install -e .
 	pip install streamlit
+
 
 package:
 	python setup.py sdist bdist_wheel
